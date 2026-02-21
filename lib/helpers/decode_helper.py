@@ -14,17 +14,24 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
     output:
     '''
     results = {}
+    
+    file_path = "best_thresholds_val.npz"
+    best_thresholds = dict(np.load(file_path, allow_pickle=True))
+
+
     for i in range(dets.shape[0]):  # batch
         preds = []
         score_all=[]
         # clustering_features = []                    #extra
-        mean_score = np.mean(dets[i, :, 1])
-        std = np.std(dets[i, :, 1])
+        # mean_score = np.mean(dets[i, :, 1])
+        # std = np.std(dets[i, :, 1])
 
-        if std > 0.1:
-            new_threshold = mean_score + (std / 8)
-        else:
-            new_threshold = threshold
+        # if std > 0.1:
+        #     new_threshold = mean_score + (std / 8)
+        # else:
+        #     new_threshold = threshold
+        img_id = info['img_id'][i]
+        new_threshold = best_thresholds[img_id]
 ###########################################################################################################################    
         # class MLP(nn.Module):
         #     def __init__(self, input_dim=59):
