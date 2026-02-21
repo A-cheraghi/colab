@@ -31,9 +31,9 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
         #     new_threshold = mean_score + (std / 8)
         # else:
         #     new_threshold = threshold
-        
+
         img_id = info['img_id'][i]
-        new_threshold = best_thresholds[img_id]
+        new_threshold = best_thresholds[f"{img_id}"]
 ###########################################################################################################################    
         # class MLP(nn.Module):
         #     def __init__(self, input_dim=59):
