@@ -17,7 +17,7 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
     
     
     file_path = "/content/best_thresholds_val.npz"
-    best_thresholds = dict(np.load(file_path, allow_pickle=True))
+    best_thresholds = np.load(file_path, allow_pickle=True)['best_thresholds'].item()
 
 
     for i in range(dets.shape[0]):  # batch
@@ -31,6 +31,7 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
         #     new_threshold = mean_score + (std / 8)
         # else:
         #     new_threshold = threshold
+        
         img_id = info['img_id'][i]
         new_threshold = best_thresholds[img_id]
 ###########################################################################################################################    
