@@ -15,7 +15,8 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
     '''
     results = {}
     
-    file_path = "best_thresholds_val.npz"
+    
+    file_path = "/content/best_thresholds_val.npz"
     best_thresholds = dict(np.load(file_path, allow_pickle=True))
 
 
