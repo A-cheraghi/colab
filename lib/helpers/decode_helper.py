@@ -31,7 +31,7 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
         #     new_threshold = mean_score + (std / 8)
         # else:
         #     new_threshold = threshold
-
+        print(info['img_id'][i])
         img_id = info['img_id'][i]
         new_threshold = best_thresholds[img_id]
 ###########################################################################################################################    
