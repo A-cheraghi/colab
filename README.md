@@ -4,6 +4,7 @@
 This repository hosts the official implementation of [MonoDGP: Monocular 3D Object Detection with Decoupled-Query and Geometry-Error Priors](https://arxiv.org/abs/2410.19590) based on the excellent work [MonoDETR](https://github.com/ZrrSkywalker/MonoDETR). In this work, we propose a novel transformer-based monocular method called MonoDGP, which adopts geometry errors to correct the projection formula. We also introduce a 2D visual decoder for query initialization and a region segmentation head for feature enhancement.
 
 
+
 <div align="center">
   <img src="figures/overall.png" width="800" height="auto"/>
 </div>
