@@ -63,7 +63,7 @@ class KITTI_Dataset(data.Dataset):
 
         # data split loading
         assert self.split in ['train', 'val', 'trainval', 'test']
-        self.split_file = os.path.join('/input/imagesets-monolss', self.split + '.txt')
+        self.split_file = os.path.join('/content/colab/data/kitti/ImageSets_3dop', self.split + '.txt')
         self.idx_list = [x.strip() for x in open(self.split_file).readlines()]
 
         # path configuration
