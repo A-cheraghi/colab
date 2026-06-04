@@ -16,8 +16,7 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
     results = {}
     
     
-    file_path  = "/content/best_thresholds_val.npz"
-    best_thresholds = dict(np.load(file_path , allow_pickle=True))
+
 
 
     for i in range(dets.shape[0]):  # batch
@@ -31,8 +30,7 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
         #     new_threshold = mean_score + (std / 8)
         # else:
         #     new_threshold = threshold
-        img_id = str(info['img_id'][i]).zfill(6)
-        new_threshold = best_thresholds[img_id] 
+
 ###########################################################################################################################    
         # class MLP(nn.Module):
         #     def __init__(self, input_dim=59):
@@ -183,7 +181,7 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
 
             score_all.append(score)
             
-            if score <= new_threshold:
+            if score <= threshold:
                 continue
                             
             # 2d bboxs decoding
