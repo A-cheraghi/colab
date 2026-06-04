@@ -17,8 +17,6 @@ def decode_detections(dets, info, calibs, cls_mean_size, threshold):
     
     
 
-
-
     for i in range(dets.shape[0]):  # batch
         preds = []
         score_all=[]
